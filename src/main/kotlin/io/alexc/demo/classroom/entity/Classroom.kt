@@ -1,5 +1,6 @@
 package io.alexc.demo.classroom.entity
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import javax.persistence.*
 
 @Entity
@@ -9,5 +10,8 @@ data class Classroom(
         val id: Int,
 
         @Column(name = "classroom_name")
-        val name: String
+        val name: String,
+
+        @OneToMany(mappedBy = "classroom", cascade = [CascadeType.ALL]) @JsonManagedReference
+        val students: Collection<Student>
 )

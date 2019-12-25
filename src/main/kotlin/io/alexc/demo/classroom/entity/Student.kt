@@ -1,5 +1,6 @@
 package io.alexc.demo.classroom.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import java.util.*
 import javax.persistence.*
 
@@ -20,5 +21,8 @@ data class Student(
 
         @Column(name = "birth_date", nullable = false)
         @Temporal(TemporalType.DATE)
-        val birthDate: Date
+        val birthDate: Date,
+
+        @ManyToOne @JoinColumn(name = "classroom_id") @JsonBackReference
+        val classroom: Classroom
 )
