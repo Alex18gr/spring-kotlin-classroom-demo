@@ -8,7 +8,7 @@ import javax.persistence.*
 @Table(name = "students")
 data class Student(
         @Id @Column(name = "student_id") @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Int,
+        var id: Int?,
 
         @Column(name = "first_name", nullable = false)
         var firstName: String,
@@ -24,5 +24,5 @@ data class Student(
         var birthDate: Date,
 
         @ManyToOne @JoinColumn(name = "classroom_id") @JsonBackReference
-        var classroom: Classroom
+        var classroom: Classroom?
 )

@@ -63,7 +63,6 @@ class ClassroomController(private val classroomService: ClassroomService, privat
     fun putClassroomStudent(@PathVariable classroomId: Int, @PathVariable studentId: Int,
                             @RequestBody student: Student) : Student {
         val s = studentService.getById(studentId) ?: throw StudentNotFoundException(studentId)
-        s.classroom = student.classroom
         s.birthDate = student.birthDate
         s.firstName = student.firstName
         s.lastName = student.lastName
