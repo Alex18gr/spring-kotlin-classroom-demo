@@ -2,7 +2,9 @@ package io.alexc.demo.classroom.service
 
 import io.alexc.demo.classroom.entity.Student
 import io.alexc.demo.classroom.repository.StudentRepository
+import org.springframework.stereotype.Service
 
+@Service
 class StudentServiceImpl(private val studentRepository: StudentRepository) : StudentService {
 
     override fun findAll(): MutableList<Student> {

@@ -7,11 +7,11 @@ import javax.persistence.*
 @Table(name = "classrooms")
 data class Classroom(
         @Id @Column(name = "classroom_id") @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Int,
+        var id: Int,
 
         @Column(name = "classroom_name")
-        val name: String,
+        var name: String,
 
         @OneToMany(mappedBy = "classroom", cascade = [CascadeType.ALL]) @JsonManagedReference
-        val students: Collection<Student>
+        var students: Collection<Student>
 )
