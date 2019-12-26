@@ -19,6 +19,10 @@ class ClassroomServiceImpl(private val classroomRepository: ClassroomRepository)
         classroomRepository.delete(classroom)
     }
 
+    override fun deleteClassroomById(id: Int) {
+        classroomRepository.deleteById(id)
+    }
+
     override fun findById(int: Int): Classroom? {
         return classroomRepository.getById(int)
     }

@@ -10,5 +10,7 @@ interface ClassroomService {
 
     fun deleteClassroom(classroom: Classroom)
 
+    fun deleteClassroomById(id: Int)
+
     fun findById(int: Int): Classroom?
 }

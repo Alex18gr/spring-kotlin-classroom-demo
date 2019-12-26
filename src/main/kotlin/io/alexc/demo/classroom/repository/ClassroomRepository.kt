@@ -15,7 +15,7 @@ interface ClassroomRepository : JpaRepository<Classroom, Int> {
 
     override fun delete(p0: Classroom)
 
-    override fun deleteById(p0: Int)
+    override fun deleteById(id: Int)
 
     override fun findById(p0: Int): Optional<Classroom>
 

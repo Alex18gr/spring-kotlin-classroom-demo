@@ -34,8 +34,13 @@ class ClassroomController(private val classroomService: ClassroomService, privat
     fun putClassroom(@RequestBody classroom: Classroom, @PathVariable id: Int) : Classroom {
         val c = classroomService.findById(id) ?: throw ClassroomNotFoundException(id)
         c.name = classroom.name
-        c.students = classroom.students
+        // c.students = classroom.students // this needs also the students to be edited
         return classroomService.saveClassroom(c)
+    }
+
+    @RequestMapping(value = ["/{id}"], method = [RequestMethod.DELETE])
+    fun deleteClassroom(@PathVariable id: Int) {
+        classroomService.deleteClassroomById(id);
     }
 
     @RequestMapping(value = ["/{classroomId}/students"])
